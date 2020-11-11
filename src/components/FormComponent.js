@@ -13,14 +13,14 @@ export const FormComponent = ({
         <>
             {isLogin ? (
                 <>
-                    <div>currentUser : Login</div>
+                    <h3>currentUser : Login</h3>
                     <button type="button" onClick={onLogout}>
                         Logout
                     </button>
                 </>
             ) : (
                 <>
-                    <div>curretUser : Logout</div>
+                    <h3>curretUser : Logout</h3>
 
                     <form
                         onChange={onChange}
@@ -37,7 +37,7 @@ export const FormComponent = ({
                         />
                         <button type="submit">Submit</button>
                         <button onClick={onClick} type="button">
-                            {isSignIn ? "SignUp" : "signIn"}
+                            {isSignIn ? "SignUp" : "SignIn"}
                         </button>
                     </form>
                 </>

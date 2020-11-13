@@ -16,10 +16,13 @@ export const useFormInput = (initialValue) => {
 
 export const useInput = (initialValue) => {
     const [text, setText] = useState(initialValue);
-    const onChange = useCallback((e) => {
-        const { value } = e.target;
-        setText(value);
-    });
+    const onChange = useCallback(
+        (e) => {
+            const { value } = e.target;
+            setText(value);
+        },
+        [text]
+    );
 
     return [text, setText, onChange];
 };
@@ -31,7 +34,7 @@ export const useSubmit = (dispatchName, value) => {
             e.preventDefault();
             dispatch(dispatch(dispatchName(value)));
         },
-        [value, dispatch]
+        [value, dispatch, dispatchName]
     );
 
     return { onSubmit };

@@ -21,9 +21,12 @@ function App() {
     const { isLogin } = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
-    const onLogout = useCallback((e) => {
-        dispatch(logOut());
-    });
+    const onLogout = useCallback(
+        (e) => {
+            dispatch(logOut());
+        },
+        [dispatch]
+    );
 
     return (
         <FormComponent

@@ -37,7 +37,7 @@ export const useSubmit = (dispatchName, value) => {
             e.preventDefault();
             dispatch(dispatch(dispatchName(value)));
         },
-        [value, dispatch]
+        [value, dispatch, dispatchName]
     );
 
     return { onSubmit };
@@ -55,7 +55,7 @@ export const useInput = (initialValue) => {
     const onChange = useCallback((e) => {
         const { value } = e.target;
         setText(value);
-    });
+    }, [text]);
 
     return [text, setText, onChange];
 };
